@@ -14,6 +14,7 @@
 		A4D7187C266636BC006DFDF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D7187A266636BC006DFDF2 /* LaunchScreen.storyboard */; };
 		A4D71887266636BC006DFDF2 /* WhatsAppCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D71886266636BC006DFDF2 /* WhatsAppCloneTests.swift */; };
 		A4D71892266636BC006DFDF2 /* WhatsAppCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D71891266636BC006DFDF2 /* WhatsAppCloneUITests.swift */; };
+		A4D718A626663A4E006DFDF2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718A526663A4E006DFDF2 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A4D7188D266636BC006DFDF2 /* WhatsAppCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsAppCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D71891266636BC006DFDF2 /* WhatsAppCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsAppCloneUITests.swift; sourceTree = "<group>"; };
 		A4D71893266636BC006DFDF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4D718A526663A4E006DFDF2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				A4D7186F266636BB006DFDF2 /* AppDelegate.swift */,
 				A4D71873266636BB006DFDF2 /* ViewController.swift */,
+				A4D718A526663A4E006DFDF2 /* UserModel.swift */,
 				A4D71875266636BB006DFDF2 /* Main.storyboard */,
 				A4D71878266636BC006DFDF2 /* Assets.xcassets */,
 				A4D7187A266636BC006DFDF2 /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D71874266636BB006DFDF2 /* ViewController.swift in Sources */,
+				A4D718A626663A4E006DFDF2 /* UserModel.swift in Sources */,
 				A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
