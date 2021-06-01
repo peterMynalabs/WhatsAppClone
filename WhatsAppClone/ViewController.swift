@@ -11,9 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        if !UserDefaults.isFirstLaunch() { //remember to Undo
+            navigationController?.pushViewController(LoginViewController(), animated: false)
+        } else {
+            print("yp")
+        }
     }
-
-
 }
 
