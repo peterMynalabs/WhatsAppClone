@@ -14,18 +14,19 @@ class LoginViewController: VC {
         mainView.backgroundColor = .white
         title = "Phone Number"
         setupNavigationBar()
+        
         mainView.addSubview(mainTitleLabel)
         mainView.addSubview(countryButton)
         mainView.addSubview(countryLabel)
         mainView.addSubview(countryNumberTextView)
         mainView.addSubview(phoneNumberTextView)
+    
         mainTitleLabel.snp.makeConstraints({ (make) -> Void in
             make.width.equalTo(300)
             make.height.equalTo(40)
             make.top.equalTo(mainView).offset(107)
             make.centerX.equalToSuperview()
         })
-        
         countryButton.snp.makeConstraints({ (make) -> Void in
             make.width.equalToSuperview()
             make.height.equalTo(45)
@@ -52,7 +53,6 @@ class LoginViewController: VC {
         })
         phoneNumberTextView.delegate = self
         countryNumberTextView.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,8 +68,6 @@ class LoginViewController: VC {
         label.textAlignment = .center
         return label
     }()
-    
-    
     
     var countryButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -93,7 +91,7 @@ class LoginViewController: VC {
     
     var countryNumberTextView: UITextView = {
         var textView = UITextView()
-        textView.text =  "+" + getCountryPhoneCode(Locale.currentCountryCode()!)
+        textView.text =  "+" + Country().getCountryPhoneCode(Locale.currentCountryCode()!)
         textView.font = UIFont.systemFont(ofSize: 27)
         textView.textColor = .black
         textView.keyboardType = .asciiCapableNumberPad
@@ -124,16 +122,15 @@ class LoginViewController: VC {
         navigationItem.leftBarButtonItem = UIBarButtonItem()
     }
     
-    @objc
-    func clickedNext() {
-        if isNextButtonActivated {
-            print("oh yeah")
-        }
+    @objc func clickedNext() {
+        if isNextButtonActivated { }
     }
     
-    @objc
-    func countryTapped() {
+    @objc func countryTapped() {
         countryButton.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        let controller = CountrySelectorViewController()
+        controller.countrySelectorDelegate = self
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func validateNextButton(with sucess: Bool) {
@@ -145,19 +142,16 @@ class LoginViewController: VC {
     }
     
     func checkFlags() {
-        if isCountryCodePresent && isPhoneNumberPresent {
-            isNextButtonActivated = true
-            validateNextButton(with: true)
-        } else {
-            isNextButtonActivated = false
-            validateNextButton(with: false)
-        }
+        let check = isCountryCodePresent && isPhoneNumberPresent
+        isNextButtonActivated = check
+        validateNextButton(with: check)
     }
     
     func updateCountryButton(with country: String) {
-        if country == "error" {
+        if country == "error" || country == "" {
             countryLabel.text = "Invalid country code"
             isCountryCodePresent = false
+            checkFlags()
         } else {
             let countryName = Locale.getCountryName(from: country)
             countryLabel.text = countryName
@@ -165,7 +159,6 @@ class LoginViewController: VC {
             checkFlags()
         }
     }
-    
 }
 
 extension LoginViewController: UITextViewDelegate {
@@ -181,14 +174,11 @@ extension LoginViewController: UITextViewDelegate {
         let char = text.cString(using: String.Encoding.utf8)!
         let isBackSpace = strcmp(char, "\\b")
         let currentText = textView.text!
-        
         if textView == countryNumberTextView {
-            
             var finishedText = currentText + text
             if isBackSpace == -92 {
                 finishedText = String(finishedText.dropLast())
             }
-
             
             if currentText.count == 2 && isBackSpace == -92 {
                 textView.text = ""
@@ -216,20 +206,19 @@ extension LoginViewController: UITextViewDelegate {
             if isBackSpace == -92 {
                 completeText = String(completeText.dropLast())
             }
-            let code = completeText.trimmingCharacters(in: CharacterSet(charactersIn: "+"))
             
-          
+            let code = completeText.trimmingCharacters(in: CharacterSet(charactersIn: "+"))
             
             if text == "\n" {
                 textView.resignFirstResponder()
                 return false
             }
-            updateCountryButton(with: getCountryPhoneCode(String(code)))
-            
+            updateCountryButton(with: Country().getCountryPhoneCode(String(code)))
             return true
         } else {
             if currentText.count > 9 {
                 if isBackSpace != -92 {
+                    checkFlags()
                     return false
                 }
             }
@@ -245,16 +234,23 @@ extension LoginViewController: UITextViewDelegate {
                 title = "Phone Number"
             }
             
-            if currentText.count == 9 {
+            if finishedText.count == 10 {
                 isPhoneNumberPresent = true
-                checkFlags()
             } else {
                 isPhoneNumberPresent = false
                 
             }
-            
+            checkFlags()
+
             return true
             
         }
+    }
+}
+
+extension LoginViewController: CountrySelectorDelegate {
+    func pressedOnRow(country: String) {
+        countryNumberTextView.text = "+" + country
+        updateCountryButton(with: Country().getCountryPhoneCode(country))
     }
 }

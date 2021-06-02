@@ -9,20 +9,21 @@
 /* Begin PBXBuildFile section */
 		073FC29ECE4F5DF1B66AEB99 /* Pods_WhatsAppClone_WhatsAppCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972577E22D92DD5997856E70 /* Pods_WhatsAppClone_WhatsAppCloneUITests.framework */; };
 		3F662CA7972DA02BB9B93521 /* Pods_WhatsAppClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3647B4DDB11A1E7D787BF5C9 /* Pods_WhatsAppClone.framework */; };
+		A4AD5C6426669146006499B9 /* CountrySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */; };
 		A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7186F266636BB006DFDF2 /* AppDelegate.swift */; };
 		A4D71874266636BB006DFDF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D71873266636BB006DFDF2 /* ViewController.swift */; };
-		A4D71877266636BB006DFDF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D71875266636BB006DFDF2 /* Main.storyboard */; };
 		A4D71879266636BC006DFDF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D71878266636BC006DFDF2 /* Assets.xcassets */; };
 		A4D7187C266636BC006DFDF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D7187A266636BC006DFDF2 /* LaunchScreen.storyboard */; };
 		A4D71887266636BC006DFDF2 /* WhatsAppCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D71886266636BC006DFDF2 /* WhatsAppCloneTests.swift */; };
 		A4D71892266636BC006DFDF2 /* WhatsAppCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D71891266636BC006DFDF2 /* WhatsAppCloneUITests.swift */; };
 		A4D718A626663A4E006DFDF2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718A526663A4E006DFDF2 /* UserModel.swift */; };
 		A4D718AB26663BD3006DFDF2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718AA26663BD3006DFDF2 /* LoginViewController.swift */; };
-		A4D718B026663D1B006DFDF2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718AF26663D1B006DFDF2 /* Router.swift */; };
 		A4D718C526664015006DFDF2 /* UserDefaults+isFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718C426664015006DFDF2 /* UserDefaults+isFirstLaunch.swift */; };
 		A4D718D526664599006DFDF2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718D426664599006DFDF2 /* UIColor+Extensions.swift */; };
 		A4D718DA2666478A006DFDF2 /* VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718D92666478A006DFDF2 /* VC.swift */; };
-		A4D718ED266656BE006DFDF2 /* Locale+CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718EC266656BE006DFDF2 /* Locale+CountryCode.swift */; };
+		A4D718ED266656BE006DFDF2 /* Locale+regionCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718EC266656BE006DFDF2 /* Locale+regionCodes.swift */; };
+		A4E821EA2666938000384163 /* Dictionary+someKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E821E92666938000384163 /* Dictionary+someKeys.swift */; };
+		A4E821FD2667B5DE00384163 /* SearchableCountrySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E821FC2667B5DE00384163 /* SearchableCountrySelectorViewController.swift */; };
 		FFB3962AABC9F8FE16C0BD41 /* Pods_WhatsAppCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA46C0B28185084A81AFAD94 /* Pods_WhatsAppCloneTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +52,10 @@
 		887C01BA35B35CFC364AEFF1 /* Pods-WhatsAppClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsAppClone.release.xcconfig"; path = "Target Support Files/Pods-WhatsAppClone/Pods-WhatsAppClone.release.xcconfig"; sourceTree = "<group>"; };
 		972577E22D92DD5997856E70 /* Pods_WhatsAppClone_WhatsAppCloneUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsAppClone_WhatsAppCloneUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D47E3238DF2674C137C7ED /* Pods-WhatsAppCloneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsAppCloneTests.release.xcconfig"; path = "Target Support Files/Pods-WhatsAppCloneTests/Pods-WhatsAppCloneTests.release.xcconfig"; sourceTree = "<group>"; };
+		A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectorViewController.swift; sourceTree = "<group>"; };
 		A4D7186C266636BB006DFDF2 /* WhatsAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsAppClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D7186F266636BB006DFDF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4D71873266636BB006DFDF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A4D71876266636BB006DFDF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4D71878266636BC006DFDF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4D7187B266636BC006DFDF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4D7187D266636BC006DFDF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,11 +67,12 @@
 		A4D71893266636BC006DFDF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D718A526663A4E006DFDF2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		A4D718AA26663BD3006DFDF2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		A4D718AF26663D1B006DFDF2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A4D718C426664015006DFDF2 /* UserDefaults+isFirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+isFirstLaunch.swift"; sourceTree = "<group>"; };
 		A4D718D426664599006DFDF2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		A4D718D92666478A006DFDF2 /* VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC.swift; sourceTree = "<group>"; };
-		A4D718EC266656BE006DFDF2 /* Locale+CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+CountryCode.swift"; sourceTree = "<group>"; };
+		A4D718EC266656BE006DFDF2 /* Locale+regionCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+regionCodes.swift"; sourceTree = "<group>"; };
+		A4E821E92666938000384163 /* Dictionary+someKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+someKeys.swift"; sourceTree = "<group>"; };
+		A4E821FC2667B5DE00384163 /* SearchableCountrySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableCountrySelectorViewController.swift; sourceTree = "<group>"; };
 		C477F88931A999831EEB964A /* Pods-WhatsAppClone-WhatsAppCloneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsAppClone-WhatsAppCloneUITests.release.xcconfig"; path = "Target Support Files/Pods-WhatsAppClone-WhatsAppCloneUITests/Pods-WhatsAppClone-WhatsAppCloneUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA46C0B28185084A81AFAD94 /* Pods_WhatsAppCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsAppCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				A4D7186E266636BB006DFDF2 /* WhatsAppClone */,
+				A4D7187D266636BC006DFDF2 /* Info.plist */,
 				A4D71885266636BC006DFDF2 /* WhatsAppCloneTests */,
 				A4D71890266636BC006DFDF2 /* WhatsAppCloneUITests */,
 				A4D7186D266636BB006DFDF2 /* Products */,
@@ -128,17 +131,11 @@
 		A4D7186E266636BB006DFDF2 /* WhatsAppClone */ = {
 			isa = PBXGroup;
 			children = (
+				A4E8220F2667CA9000384163 /* Misc */,
+				A4E8220B2667CA7600384163 /* Common */,
 				A4D718C026663FFB006DFDF2 /* Extensions */,
 				A4D718B426663ECE006DFDF2 /* Models */,
-				A4D7186F266636BB006DFDF2 /* AppDelegate.swift */,
-				A4D71873266636BB006DFDF2 /* ViewController.swift */,
-				A4D718AF26663D1B006DFDF2 /* Router.swift */,
-				A4D718AA26663BD3006DFDF2 /* LoginViewController.swift */,
-				A4D71875266636BB006DFDF2 /* Main.storyboard */,
-				A4D71878266636BC006DFDF2 /* Assets.xcassets */,
-				A4D7187A266636BC006DFDF2 /* LaunchScreen.storyboard */,
-				A4D7187D266636BC006DFDF2 /* Info.plist */,
-				A4D718D92666478A006DFDF2 /* VC.swift */,
+				A4E8220A2667CA5C00384163 /* Login */,
 			);
 			path = WhatsAppClone;
 			sourceTree = "<group>";
@@ -174,9 +171,47 @@
 			children = (
 				A4D718C426664015006DFDF2 /* UserDefaults+isFirstLaunch.swift */,
 				A4D718D426664599006DFDF2 /* UIColor+Extensions.swift */,
-				A4D718EC266656BE006DFDF2 /* Locale+CountryCode.swift */,
+				A4D718EC266656BE006DFDF2 /* Locale+regionCodes.swift */,
+				A4E821E92666938000384163 /* Dictionary+someKeys.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A4E821FB2667B5CA00384163 /* CountrySelector */ = {
+			isa = PBXGroup;
+			children = (
+				A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */,
+				A4E821FC2667B5DE00384163 /* SearchableCountrySelectorViewController.swift */,
+			);
+			path = CountrySelector;
+			sourceTree = "<group>";
+		};
+		A4E8220A2667CA5C00384163 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A4D718AA26663BD3006DFDF2 /* LoginViewController.swift */,
+				A4E821FB2667B5CA00384163 /* CountrySelector */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A4E8220B2667CA7600384163 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A4D718D92666478A006DFDF2 /* VC.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A4E8220F2667CA9000384163 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				A4D7187A266636BC006DFDF2 /* LaunchScreen.storyboard */,
+				A4D7186F266636BB006DFDF2 /* AppDelegate.swift */,
+				A4D71878266636BC006DFDF2 /* Assets.xcassets */,
+				A4D71873266636BB006DFDF2 /* ViewController.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		B12D39B429E56C0B1901559D /* Pods */ = {
@@ -312,7 +347,6 @@
 			files = (
 				A4D7187C266636BC006DFDF2 /* LaunchScreen.storyboard in Resources */,
 				A4D71879266636BC006DFDF2 /* Assets.xcassets in Resources */,
-				A4D71877266636BB006DFDF2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,13 +474,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E821EA2666938000384163 /* Dictionary+someKeys.swift in Sources */,
+				A4AD5C6426669146006499B9 /* CountrySelectorViewController.swift in Sources */,
 				A4D718AB26663BD3006DFDF2 /* LoginViewController.swift in Sources */,
 				A4D71874266636BB006DFDF2 /* ViewController.swift in Sources */,
-				A4D718B026663D1B006DFDF2 /* Router.swift in Sources */,
+				A4E821FD2667B5DE00384163 /* SearchableCountrySelectorViewController.swift in Sources */,
 				A4D718A626663A4E006DFDF2 /* UserModel.swift in Sources */,
 				A4D718DA2666478A006DFDF2 /* VC.swift in Sources */,
 				A4D718D526664599006DFDF2 /* UIColor+Extensions.swift in Sources */,
-				A4D718ED266656BE006DFDF2 /* Locale+CountryCode.swift in Sources */,
+				A4D718ED266656BE006DFDF2 /* Locale+regionCodes.swift in Sources */,
 				A4D718C526664015006DFDF2 /* UserDefaults+isFirstLaunch.swift in Sources */,
 				A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */,
 			);
@@ -484,14 +520,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A4D71875266636BB006DFDF2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A4D71876266636BB006DFDF2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A4D7187A266636BC006DFDF2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -16,10 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let controller = ViewController()
+        var controller: UIViewController?
+        if !UserDefaults.isFirstLaunch() { //remember to Undo
+            controller = LoginViewController()
+        } else {
+            controller = ViewController()
+        }
         let mainNavigationController = UINavigationController()
         
-        mainNavigationController.viewControllers = [controller]
+        mainNavigationController.viewControllers = [controller!]
         
         window?.rootViewController = mainNavigationController
         window?.makeKeyAndVisible()
