@@ -20,9 +20,26 @@ extension Locale {
         return Locale.current.localizedString(forRegionCode: code)
     }
     
+    static func getCountryCode(from name: String) -> String? {
+        return Locale.current.isoCode(for: name)
+    }
+    
+    func isoCode(for countryName: String) -> String? {
+            return Locale.isoRegionCodes.first(where: { (code) -> Bool in
+                localizedString(forRegionCode: code)?.compare(countryName, options: [.caseInsensitive, .diacriticInsensitive]) == .orderedSame
+            })
+        }
+    
 }
 
-func getCountryPhoneCode (_ country : String) -> String {
+
+
+
+
+
+
+
+struct Country {
     let countryDictionary  = ["AF": "93",
                               "AL": "355",
                               "DZ": "213",
@@ -235,56 +252,38 @@ func getCountryPhoneCode (_ country : String) -> String {
                               "VG": "284",
                               "VI": "340",
                               "EH": "121"]
-    if let _ = Int(country) {
-        for region in countryDictionary.values {
-            if region == country {
-                return countryDictionary.someKey(forValue: region)!
+    
+    func getCountryPhoneCode (_ country : String) -> String {
+        
+        if let _ = Int(country) {
+            for region in countryDictionary.values {
+                if region == country {
+                    return countryDictionary.someKey(forValue: region)!
+                }
+            }
+            return "error"
+            
+        } else {
+            if let countryCode = countryDictionary[country] {
+                return countryCode
             }
         }
-        return "error"
-
-    } else {
-        if let countryCode = countryDictionary[country] {
+        
+        return ""
+    }
+    
+    func getCountryPhoneCode(from countryName: String) -> String {
+        if let countryCode = countryDictionary[Locale.getCountryCode(from: countryName)!] {
             return countryCode
         }
+        return ""
     }
-   
-    return ""
-}
-
-extension Dictionary where Value: Equatable {
-    func someKey(forValue val: Value) -> Key? {
-        return first(where: { $1 == val })?.key
+    
+    func getListOfCountryNames() -> [String] {
+        var arrayOfNames: [String] = []
+        for key in Array(countryDictionary.keys) {
+            arrayOfNames.append(Locale.getCountryName(from: key)!)
+        }
+        return arrayOfNames
     }
 }
-
-
-extension CALayer {
-
-  func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
-
-    let border = CALayer()
-
-    switch edge {
-    case UIRectEdge.top:
-        border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
-
-    case UIRectEdge.bottom:
-        border.frame = CGRect(x:0, y: frame.height - thickness, width: frame.width, height:thickness)
-
-    case UIRectEdge.left:
-        border.frame = CGRect(x:0, y:0, width: thickness, height: frame.height)
-
-    case UIRectEdge.right:
-        border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
-
-    default: do {}
-    }
-
-    border.backgroundColor = color.cgColor
-
-    addSublayer(border)
- }
-}
-
-
