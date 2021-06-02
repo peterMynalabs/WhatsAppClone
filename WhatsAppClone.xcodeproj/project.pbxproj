@@ -109,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				A4D7186E266636BB006DFDF2 /* WhatsAppClone */,
-				A4D7187D266636BC006DFDF2 /* Info.plist */,
 				A4D71885266636BC006DFDF2 /* WhatsAppCloneTests */,
 				A4D71890266636BC006DFDF2 /* WhatsAppCloneUITests */,
 				A4D7186D266636BB006DFDF2 /* Products */,
@@ -131,6 +130,7 @@
 		A4D7186E266636BB006DFDF2 /* WhatsAppClone */ = {
 			isa = PBXGroup;
 			children = (
+				A4D7187D266636BC006DFDF2 /* Info.plist */,
 				A4E8220F2667CA9000384163 /* Misc */,
 				A4E8220B2667CA7600384163 /* Common */,
 				A4D718C026663FFB006DFDF2 /* Extensions */,
