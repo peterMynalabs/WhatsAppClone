@@ -1,12 +1,18 @@
 import Foundation
 import UIKit
 import SnapKit
+import FirebaseAuth
+
+protocol LoginViewControllerDelegate: class {
+    func pressedNext(verificationCode: String?, phoneNumber: String)
+}
 
 class LoginViewController: VC {
     var mainView = UIView()
     var isNextButtonActivated = false
     var isPhoneNumberPresent = false
     var isCountryCodePresent = true
+    weak var loginDelegate: LoginViewControllerDelegate?
     
     override func loadView() {
         mainView.frame = UIScreen.main.bounds
@@ -123,7 +129,20 @@ class LoginViewController: VC {
     }
     
     @objc func clickedNext() {
-        if isNextButtonActivated { }
+        if isNextButtonActivated {
+            let phoneNumber = countryNumberTextView.text + phoneNumberTextView.text
+            print(phoneNumber)
+            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self](verificationID, error) in
+              if let error = error {
+                print(error)
+                return
+              }
+                let controller = VerificationCodeViewController()
+                self?.loginDelegate = controller
+                self?.loginDelegate?.pressedNext(verificationCode: verificationID, phoneNumber: phoneNumber)
+                self?.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
     }
     
     @objc func countryTapped() {

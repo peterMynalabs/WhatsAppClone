@@ -24,6 +24,14 @@
 		A4D718ED266656BE006DFDF2 /* Locale+regionCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D718EC266656BE006DFDF2 /* Locale+regionCodes.swift */; };
 		A4E821EA2666938000384163 /* Dictionary+someKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E821E92666938000384163 /* Dictionary+someKeys.swift */; };
 		A4E821FD2667B5DE00384163 /* SearchableCountrySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E821FC2667B5DE00384163 /* SearchableCountrySelectorViewController.swift */; };
+		A4E822262668F67D00384163 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4E822252668F67D00384163 /* GoogleService-Info.plist */; };
+		A4E822422668FA4D00384163 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E822412668FA4D00384163 /* VerificationCodeViewController.swift */; };
+		A4E8225D2669064800384163 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E8225C2669064800384163 /* CreateUserViewController.swift */; };
+		A4E8226C2669100000384163 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E8226B2669100000384163 /* ImagePicker.swift */; };
+		A4E82277266910F000384163 /* UIImage+withRoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E82276266910F000384163 /* UIImage+withRoundedCorners.swift */; };
+		A4E8228C266915DD00384163 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E8228B266915DD00384163 /* UserService.swift */; };
+		A4E8229426692CA000384163 /* ProfilePhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E8229326692CA000384163 /* ProfilePhotoService.swift */; };
+		A4E8229A26692D2E00384163 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E8229926692D2E00384163 /* Constants.swift */; };
 		FFB3962AABC9F8FE16C0BD41 /* Pods_WhatsAppCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA46C0B28185084A81AFAD94 /* Pods_WhatsAppCloneTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +81,15 @@
 		A4D718EC266656BE006DFDF2 /* Locale+regionCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+regionCodes.swift"; sourceTree = "<group>"; };
 		A4E821E92666938000384163 /* Dictionary+someKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+someKeys.swift"; sourceTree = "<group>"; };
 		A4E821FC2667B5DE00384163 /* SearchableCountrySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableCountrySelectorViewController.swift; sourceTree = "<group>"; };
+		A4E822252668F67D00384163 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A4E8223A2668F8E400384163 /* WhatsAppClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhatsAppClone.entitlements; sourceTree = "<group>"; };
+		A4E822412668FA4D00384163 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
+		A4E8225C2669064800384163 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		A4E8226B2669100000384163 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		A4E82276266910F000384163 /* UIImage+withRoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+withRoundedCorners.swift"; sourceTree = "<group>"; };
+		A4E8228B266915DD00384163 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		A4E8229326692CA000384163 /* ProfilePhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoService.swift; sourceTree = "<group>"; };
+		A4E8229926692D2E00384163 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C477F88931A999831EEB964A /* Pods-WhatsAppClone-WhatsAppCloneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsAppClone-WhatsAppCloneUITests.release.xcconfig"; path = "Target Support Files/Pods-WhatsAppClone-WhatsAppCloneUITests/Pods-WhatsAppClone-WhatsAppCloneUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA46C0B28185084A81AFAD94 /* Pods_WhatsAppCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsAppCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				A4D7186E266636BB006DFDF2 /* WhatsAppClone */,
-				A4D71885266636BC006DFDF2 /* WhatsAppCloneTests */,
 				A4D71890266636BC006DFDF2 /* WhatsAppCloneUITests */,
 				A4D7186D266636BB006DFDF2 /* Products */,
 				B12D39B429E56C0B1901559D /* Pods */,
@@ -130,8 +146,11 @@
 		A4D7186E266636BB006DFDF2 /* WhatsAppClone */ = {
 			isa = PBXGroup;
 			children = (
+				A4E8223A2668F8E400384163 /* WhatsAppClone.entitlements */,
 				A4D7187D266636BC006DFDF2 /* Info.plist */,
+				A4E822252668F67D00384163 /* GoogleService-Info.plist */,
 				A4E8220F2667CA9000384163 /* Misc */,
+				A4E8226A26690FBE00384163 /* Services */,
 				A4E8220B2667CA7600384163 /* Common */,
 				A4D718C026663FFB006DFDF2 /* Extensions */,
 				A4D718B426663ECE006DFDF2 /* Models */,
@@ -173,6 +192,7 @@
 				A4D718D426664599006DFDF2 /* UIColor+Extensions.swift */,
 				A4D718EC266656BE006DFDF2 /* Locale+regionCodes.swift */,
 				A4E821E92666938000384163 /* Dictionary+someKeys.swift */,
+				A4E82276266910F000384163 /* UIImage+withRoundedCorners.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				A4D718AA26663BD3006DFDF2 /* LoginViewController.swift */,
+				A4E822412668FA4D00384163 /* VerificationCodeViewController.swift */,
+				A4E8225C2669064800384163 /* CreateUserViewController.swift */,
+				A4D71885266636BC006DFDF2 /* WhatsAppCloneTests */,
 				A4E821FB2667B5CA00384163 /* CountrySelector */,
 			);
 			path = Login;
@@ -199,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				A4D718D92666478A006DFDF2 /* VC.swift */,
+				A4E8226B2669100000384163 /* ImagePicker.swift */,
+				A4E8229926692D2E00384163 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -212,6 +237,15 @@
 				A4D71873266636BB006DFDF2 /* ViewController.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		A4E8226A26690FBE00384163 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A4E8228B266915DD00384163 /* UserService.swift */,
+				A4E8229326692CA000384163 /* ProfilePhotoService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B12D39B429E56C0B1901559D /* Pods */ = {
@@ -347,6 +381,7 @@
 			files = (
 				A4D7187C266636BC006DFDF2 /* LaunchScreen.storyboard in Resources */,
 				A4D71879266636BC006DFDF2 /* Assets.xcassets in Resources */,
+				A4E822262668F67D00384163 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,17 +509,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E822422668FA4D00384163 /* VerificationCodeViewController.swift in Sources */,
 				A4E821EA2666938000384163 /* Dictionary+someKeys.swift in Sources */,
 				A4AD5C6426669146006499B9 /* CountrySelectorViewController.swift in Sources */,
+				A4E8228C266915DD00384163 /* UserService.swift in Sources */,
+				A4E8226C2669100000384163 /* ImagePicker.swift in Sources */,
 				A4D718AB26663BD3006DFDF2 /* LoginViewController.swift in Sources */,
 				A4D71874266636BB006DFDF2 /* ViewController.swift in Sources */,
 				A4E821FD2667B5DE00384163 /* SearchableCountrySelectorViewController.swift in Sources */,
 				A4D718A626663A4E006DFDF2 /* UserModel.swift in Sources */,
 				A4D718DA2666478A006DFDF2 /* VC.swift in Sources */,
 				A4D718D526664599006DFDF2 /* UIColor+Extensions.swift in Sources */,
+				A4E8225D2669064800384163 /* CreateUserViewController.swift in Sources */,
 				A4D718ED266656BE006DFDF2 /* Locale+regionCodes.swift in Sources */,
+				A4E8229426692CA000384163 /* ProfilePhotoService.swift in Sources */,
+				A4E82277266910F000384163 /* UIImage+withRoundedCorners.swift in Sources */,
 				A4D718C526664015006DFDF2 /* UserDefaults+isFirstLaunch.swift in Sources */,
 				A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */,
+				A4E8229A26692D2E00384163 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +695,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WhatsAppClone/WhatsAppClone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CMGKJSD9NW;
 				INFOPLIST_FILE = WhatsAppClone/Info.plist;
@@ -673,6 +716,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WhatsAppClone/WhatsAppClone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CMGKJSD9NW;
 				INFOPLIST_FILE = WhatsAppClone/Info.plist;
