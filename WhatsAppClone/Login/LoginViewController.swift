@@ -77,7 +77,7 @@ class LoginViewController: VC {
     
     var countryButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage( UIImage(systemName: "chevron.right")?.withTintColor(UIColor(rgb: 0x3C3C43), renderingMode: .alwaysOriginal), for: .normal)
+        button.setImage(UIImage(systemName: "chevron.right")?.withTintColor(UIColor(rgb: 0x3C3C43), renderingMode: .alwaysOriginal), for: .normal)
         button.contentHorizontalAlignment = .right
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -15, bottom: 0, right: 15)
         button.layer.borderWidth = 0.5

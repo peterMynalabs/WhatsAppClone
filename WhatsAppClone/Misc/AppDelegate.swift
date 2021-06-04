@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let userData = UserDefaults.standard.object(forKey: Constants.UserDefaults.currentUser) as? Data
             let user = try? JSONDecoder().decode(User.self, from: userData!)
             User.setCurrent(user!)
-            controller = ViewController()
+            controller = ChatsViewController()
         }
         let mainNavigationController = UINavigationController()
         
