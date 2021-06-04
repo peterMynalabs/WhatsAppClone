@@ -3,25 +3,12 @@
 import Foundation
 import UIKit
 
-
 class User: Codable {
     let uid: String
     var name: String
     var phoneNumber: String
 
     init(uid: String, name: String, phoneNumber: String) {
-        self.uid = uid
-        self.name = name
-        self.phoneNumber = phoneNumber
-    }
-
-    init?(snapshot: [String: Any]) {
-        guard let dict = snapshot as? [String: String],
-            let phoneNumber = dict["phoneNumber"],
-            let name = dict["name"],
-            let uid = dict["uuid"]
-            else { return nil }
-
         self.uid = uid
         self.name = name
         self.phoneNumber = phoneNumber

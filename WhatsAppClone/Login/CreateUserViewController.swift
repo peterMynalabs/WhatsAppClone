@@ -122,7 +122,7 @@ class CreateUserViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(clickedDone))
+        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(tappedNewIcon))
         button.tintColor = UIColor(rgb: 0x007AFF)
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)], for: UIControl.State.normal)
         navigationItem.rightBarButtonItem = button
@@ -139,6 +139,7 @@ class CreateUserViewController: UIViewController {
             return
         }
         UserService().uploadUser(with: user)
+        navigationController?.setViewControllers([ChatsViewController()], animated: true)
     }
 }
 
