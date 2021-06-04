@@ -56,6 +56,36 @@ class UserService {
         dataTask.resume()
     }
     
+    func getAllUsers(recievedUsers: @escaping ([User]) -> Void){
+        let session = URLSession.shared
+        
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = Constant().urlHost
+        components.path = "/rest/whatsappcloneusers"
+        let url = components.url
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = Constant().headers
+        
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error!)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse!)
+                if let _ = try? JSONSerialization.jsonObject(with: data!, options: []) {
+                    let decoder = JSONDecoder()
+                    let allBlogPosts = try! decoder.decode([User].self, from: data!)
+                    print(allBlogPosts)
+                    recievedUsers(allBlogPosts)
+                }
+            }
+        })
+        dataTask.resume()
+        recievedUsers([])
+    }
+    
 }
 
 

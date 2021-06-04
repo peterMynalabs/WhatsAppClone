@@ -11,6 +11,7 @@
 		3F662CA7972DA02BB9B93521 /* Pods_WhatsAppClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3647B4DDB11A1E7D787BF5C9 /* Pods_WhatsAppClone.framework */; };
 		A45288DD266A9E5100123B41 /* Dialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45288DC266A9E5100123B41 /* Dialogue.swift */; };
 		A45288E2266AAC9400123B41 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45288E1266AAC9400123B41 /* ChatListTableViewCell.swift */; };
+		A4528912266AB1FA00123B41 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4528911266AB1FA00123B41 /* NewConversationViewController.swift */; };
 		A4AD5C6426669146006499B9 /* CountrySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */; };
 		A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7186F266636BB006DFDF2 /* AppDelegate.swift */; };
 		A4D71874266636BB006DFDF2 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D71873266636BB006DFDF2 /* ChatsViewController.swift */; };
@@ -64,6 +65,7 @@
 		A0D47E3238DF2674C137C7ED /* Pods-WhatsAppCloneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsAppCloneTests.release.xcconfig"; path = "Target Support Files/Pods-WhatsAppCloneTests/Pods-WhatsAppCloneTests.release.xcconfig"; sourceTree = "<group>"; };
 		A45288DC266A9E5100123B41 /* Dialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialogue.swift; sourceTree = "<group>"; };
 		A45288E1266AAC9400123B41 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
+		A4528911266AB1FA00123B41 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectorViewController.swift; sourceTree = "<group>"; };
 		A4D7186C266636BB006DFDF2 /* WhatsAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsAppClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D7186F266636BB006DFDF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,8 +131,8 @@
 		A4528906266AAF5F00123B41 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
-				A45288E1266AAC9400123B41 /* ChatListTableViewCell.swift */,
 				A4D71873266636BB006DFDF2 /* ChatsViewController.swift */,
+				A45288E1266AAC9400123B41 /* ChatListTableViewCell.swift */,
 			);
 			path = ChatList;
 			sourceTree = "<group>";
@@ -138,6 +140,7 @@
 		A452890A266AB10B00123B41 /* NewConversation */ = {
 			isa = PBXGroup;
 			children = (
+				A4528911266AB1FA00123B41 /* NewConversationViewController.swift */,
 			);
 			path = NewConversation;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				A4D718D526664599006DFDF2 /* UIColor+Extensions.swift in Sources */,
 				A4E8225D2669064800384163 /* CreateUserViewController.swift in Sources */,
 				A4D718ED266656BE006DFDF2 /* Locale+regionCodes.swift in Sources */,
+				A4528912266AB1FA00123B41 /* NewConversationViewController.swift in Sources */,
 				A4E8229426692CA000384163 /* ProfilePhotoService.swift in Sources */,
 				A4E82277266910F000384163 /* UIImage+withRoundedCorners.swift in Sources */,
 				A4D718C526664015006DFDF2 /* UserDefaults+isFirstLaunch.swift in Sources */,
