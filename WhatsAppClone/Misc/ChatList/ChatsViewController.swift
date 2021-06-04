@@ -65,7 +65,8 @@ class ChatsViewController: UIViewController {
     }()
     
     @objc func tappedNewIcon() {
-        
+        let controller = UINavigationController(rootViewController: NewMessageViewController())
+        self.present(controller, animated: true, completion: nil)
     }
 }
 
