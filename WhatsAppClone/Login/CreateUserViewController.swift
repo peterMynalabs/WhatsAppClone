@@ -161,5 +161,6 @@ extension CreateUserViewController: ImagePickerDelegate {
 
     func didSelect(image: UIImage?) {
         profileImageView.image = image
+        ProfilePhotoService().uploadImage(paramName: "name", fileName: "names", image: image!)
     }
 }
