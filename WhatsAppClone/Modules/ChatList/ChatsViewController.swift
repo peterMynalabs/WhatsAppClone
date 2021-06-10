@@ -33,6 +33,7 @@ class ChatsViewController: UIViewController {
         })
     }
     
+    
     func setupNavigationBar() {
         let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(tappedNewIcon))
         button.tintColor = UIColor(rgb: 0x007AFF)
@@ -53,7 +54,7 @@ class ChatsViewController: UIViewController {
         var counter = 0
         for user in listofUsers {
             counter += 1
-            list.append(Dialogue(interlocutor: user, dialogueID: String(counter), lastMessage: "I am gay"))
+            list.append(Dialogue(interlocutor: user, dialogueID: String(counter), lastMessage: "Fake Person"))
         }
         
         dialogues = list
@@ -64,9 +65,17 @@ class ChatsViewController: UIViewController {
         return tableView
     }()
     
+    func routeToNewChat(interlocutor: User) {
+        let controller = ConversationViewController()
+        controller.interlocutor = interlocutor
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     @objc func tappedNewIcon() {
-        let controller = UINavigationController(rootViewController: NewMessageViewController())
-        self.present(controller, animated: true, completion: nil)
+        let controller = NewMessageViewController()
+        controller.newMessageDelegate = self
+        let navigationController = UINavigationController(rootViewController: controller)
+        self.present(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -83,7 +92,20 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatListTableViewCell
         cell.nameTitleLabel.text = dialogues![indexPath.row].interlocutor.name
         cell.lastMessageTitleLabel.text = dialogues![indexPath.row].lastMessage
-    
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        routeToNewChat(interlocutor: dialogues![indexPath.row].interlocutor)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
+
+extension ChatsViewController: NewMessageViewDelegate {
+    func presentConversation(user: User) {
+        routeToNewChat(interlocutor: user)
+        
+    }
+}
+

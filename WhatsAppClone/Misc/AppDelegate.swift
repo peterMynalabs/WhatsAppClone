@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         var controller: UIViewController?
         if UserDefaults.standard.object(forKey: Constants.UserDefaults.currentUser) == nil {
-            controller = CreateUserViewController()
+            controller = LoginViewController()
         } else {
             let userData = UserDefaults.standard.object(forKey: Constants.UserDefaults.currentUser) as? Data
             let user = try? JSONDecoder().decode(User.self, from: userData!)

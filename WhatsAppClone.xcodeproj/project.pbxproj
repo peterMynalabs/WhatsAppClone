@@ -12,6 +12,7 @@
 		A45288DD266A9E5100123B41 /* Dialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45288DC266A9E5100123B41 /* Dialogue.swift */; };
 		A45288E2266AAC9400123B41 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45288E1266AAC9400123B41 /* ChatListTableViewCell.swift */; };
 		A4528912266AB1FA00123B41 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4528911266AB1FA00123B41 /* NewConversationViewController.swift */; };
+		A46B2E2E267257270072764E /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B2E2D267257270072764E /* ConversationViewController.swift */; };
 		A4AD5C6426669146006499B9 /* CountrySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */; };
 		A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7186F266636BB006DFDF2 /* AppDelegate.swift */; };
 		A4D71874266636BB006DFDF2 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D71873266636BB006DFDF2 /* ChatsViewController.swift */; };
@@ -66,6 +67,7 @@
 		A45288DC266A9E5100123B41 /* Dialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialogue.swift; sourceTree = "<group>"; };
 		A45288E1266AAC9400123B41 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		A4528911266AB1FA00123B41 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		A46B2E2D267257270072764E /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectorViewController.swift; sourceTree = "<group>"; };
 		A4D7186C266636BB006DFDF2 /* WhatsAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsAppClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D7186F266636BB006DFDF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,25 @@
 			path = NewConversation;
 			sourceTree = "<group>";
 		};
+		A46B2E2B267256BE0072764E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A46B2E2C267257120072764E /* Conversation */,
+				A452890A266AB10B00123B41 /* NewConversation */,
+				A4528906266AAF5F00123B41 /* ChatList */,
+				A4E8220A2667CA5C00384163 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		A46B2E2C267257120072764E /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				A46B2E2D267257270072764E /* ConversationViewController.swift */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
 		A4D71863266636BB006DFDF2 = {
 			isa = PBXGroup;
 			children = (
@@ -173,11 +194,11 @@
 				A4D7187D266636BC006DFDF2 /* Info.plist */,
 				A4E822252668F67D00384163 /* GoogleService-Info.plist */,
 				A4E8220F2667CA9000384163 /* Misc */,
-				A4E8226A26690FBE00384163 /* Services */,
+				A46B2E2B267256BE0072764E /* Modules */,
 				A4E8220B2667CA7600384163 /* Common */,
+				A4E8226A26690FBE00384163 /* Services */,
 				A4D718C026663FFB006DFDF2 /* Extensions */,
 				A4D718B426663ECE006DFDF2 /* Models */,
-				A4E8220A2667CA5C00384163 /* Login */,
 			);
 			path = WhatsAppClone;
 			sourceTree = "<group>";
@@ -258,8 +279,6 @@
 				A4D7187A266636BC006DFDF2 /* LaunchScreen.storyboard */,
 				A4D7186F266636BB006DFDF2 /* AppDelegate.swift */,
 				A4D71878266636BC006DFDF2 /* Assets.xcassets */,
-				A452890A266AB10B00123B41 /* NewConversation */,
-				A4528906266AAF5F00123B41 /* ChatList */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -554,6 +573,7 @@
 				A4E82277266910F000384163 /* UIImage+withRoundedCorners.swift in Sources */,
 				A4D718C526664015006DFDF2 /* UserDefaults+isFirstLaunch.swift in Sources */,
 				A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */,
+				A46B2E2E267257270072764E /* ConversationViewController.swift in Sources */,
 				A4E8229A26692D2E00384163 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
