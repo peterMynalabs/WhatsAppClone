@@ -8,10 +8,16 @@
 import Foundation
 import UIKit
 import SnapKit
+protocol NewMessageViewDelegate: class {
+    func presentConversation(user: User)
+}
 
 class NewMessageViewController: UIViewController {
     var mainView = UIView()
     var userList: [User]?
+    
+    weak var newMessageDelegate: NewMessageViewDelegate?
+    
     override func loadView() {
         mainView.frame = UIScreen.main.bounds
         view = mainView
@@ -126,5 +132,10 @@ extension NewMessageViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.dismiss(animated: true, completion: {
+            self.newMessageDelegate?.presentConversation(user: self.userList![indexPath.row])
+        })
+      
+    }
 }
