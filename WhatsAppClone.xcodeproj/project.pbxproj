@@ -12,6 +12,9 @@
 		A45288DD266A9E5100123B41 /* Dialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45288DC266A9E5100123B41 /* Dialogue.swift */; };
 		A45288E2266AAC9400123B41 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45288E1266AAC9400123B41 /* ChatListTableViewCell.swift */; };
 		A4528912266AB1FA00123B41 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4528911266AB1FA00123B41 /* NewConversationViewController.swift */; };
+		A4547CE32678187000936DDF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4547CE22678187000936DDF /* Message.swift */; };
+		A4547CE6267819A300936DDF /* DialogueDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4547CE5267819A300936DDF /* DialogueDatabase.swift */; };
+		A4547CE826782BB200936DDF /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4547CE726782BB200936DDF /* UserDatabase.swift */; };
 		A46B2E2E267257270072764E /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B2E2D267257270072764E /* ConversationViewController.swift */; };
 		A4AD5C6426669146006499B9 /* CountrySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */; };
 		A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7186F266636BB006DFDF2 /* AppDelegate.swift */; };
@@ -67,6 +70,9 @@
 		A45288DC266A9E5100123B41 /* Dialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialogue.swift; sourceTree = "<group>"; };
 		A45288E1266AAC9400123B41 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		A4528911266AB1FA00123B41 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		A4547CE22678187000936DDF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A4547CE5267819A300936DDF /* DialogueDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueDatabase.swift; sourceTree = "<group>"; };
+		A4547CE726782BB200936DDF /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
 		A46B2E2D267257270072764E /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectorViewController.swift; sourceTree = "<group>"; };
 		A4D7186C266636BB006DFDF2 /* WhatsAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsAppClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +153,15 @@
 			path = NewConversation;
 			sourceTree = "<group>";
 		};
+		A4547CE42678199400936DDF /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A4547CE5267819A300936DDF /* DialogueDatabase.swift */,
+				A4547CE726782BB200936DDF /* UserDatabase.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
 		A46B2E2B267256BE0072764E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +212,7 @@
 				A46B2E2B267256BE0072764E /* Modules */,
 				A4E8220B2667CA7600384163 /* Common */,
 				A4E8226A26690FBE00384163 /* Services */,
+				A4547CE42678199400936DDF /* LocalStorage */,
 				A4D718C026663FFB006DFDF2 /* Extensions */,
 				A4D718B426663ECE006DFDF2 /* Models */,
 			);
@@ -226,6 +242,7 @@
 			children = (
 				A4D718A526663A4E006DFDF2 /* UserModel.swift */,
 				A45288DC266A9E5100123B41 /* Dialogue.swift */,
+				A4547CE22678187000936DDF /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -560,7 +577,9 @@
 				A4E8228C266915DD00384163 /* UserService.swift in Sources */,
 				A4E8226C2669100000384163 /* ImagePicker.swift in Sources */,
 				A4D718AB26663BD3006DFDF2 /* LoginViewController.swift in Sources */,
+				A4547CE6267819A300936DDF /* DialogueDatabase.swift in Sources */,
 				A45288DD266A9E5100123B41 /* Dialogue.swift in Sources */,
+				A4547CE826782BB200936DDF /* UserDatabase.swift in Sources */,
 				A4D71874266636BB006DFDF2 /* ChatsViewController.swift in Sources */,
 				A4E821FD2667B5DE00384163 /* SearchableCountrySelectorViewController.swift in Sources */,
 				A4D718A626663A4E006DFDF2 /* UserModel.swift in Sources */,
@@ -570,6 +589,7 @@
 				A4D718ED266656BE006DFDF2 /* Locale+regionCodes.swift in Sources */,
 				A4528912266AB1FA00123B41 /* NewConversationViewController.swift in Sources */,
 				A4E8229426692CA000384163 /* ProfilePhotoService.swift in Sources */,
+				A4547CE32678187000936DDF /* Message.swift in Sources */,
 				A4E82277266910F000384163 /* UIImage+withRoundedCorners.swift in Sources */,
 				A4D718C526664015006DFDF2 /* UserDefaults+isFirstLaunch.swift in Sources */,
 				A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */,

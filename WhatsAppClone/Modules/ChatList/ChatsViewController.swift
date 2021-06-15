@@ -13,13 +13,15 @@ class ChatsViewController: UIViewController {
     
     var mainView = UIView()
     var dialogues: [Dialogue]?
-    
+    var dialogueDatabase: DialogueDatabase?
+    var userDatabase: UserDatabase?
+
     override func loadView() {
         super.viewDidLoad()
         mainView.frame = UIScreen.main.bounds
         view = mainView
         title = "Chats"
-        fetchDialogue(from: "")
+        fetchDialogue()
         setupNavigationBar()
         mainView.addSubview(tableView)
         tableView.delegate = self
@@ -31,8 +33,12 @@ class ChatsViewController: UIViewController {
             make.width.equalTo(view)
             make.height.equalTo(view)
         })
+        
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchDialogue()
+        tableView.reloadData()
+    }
     
     func setupNavigationBar() {
         let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(tappedNewIcon))
@@ -42,22 +48,8 @@ class ChatsViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem()
     }
     
-    func fetchDialogue(from: String) {
-        let listofUsers = [User(uid: "1", name: "John", phoneNumber: "0000"),
-                           User(uid: "2", name: "Jane", phoneNumber: "0000"),
-                           User(uid: "3", name: "Jeremy", phoneNumber: "0000"),
-                           User(uid: "4", name: "Jill", phoneNumber: "0000"),
-                           User(uid: "5", name: "Jackson", phoneNumber: "0000"),
-                           User(uid: "6", name: "Jim", phoneNumber: "0000"),
-                           User(uid: "7", name: "Jax", phoneNumber: "0000")]
-        var list: [Dialogue] = []
-        var counter = 0
-        for user in listofUsers {
-            counter += 1
-            list.append(Dialogue(interlocutor: user, dialogueID: String(counter), lastMessage: "Fake Person"))
-        }
-        
-        dialogues = list
+    func fetchDialogue() {
+        dialogues = dialogueDatabase?.fetchAllDialogues()
     }
     
     var tableView: UITableView = {
@@ -65,14 +57,16 @@ class ChatsViewController: UIViewController {
         return tableView
     }()
     
-    func routeToNewChat(interlocutor: User) {
+    func routeToChat(with dialogue: Dialogue){
         let controller = ConversationViewController()
-        controller.interlocutor = interlocutor
+        controller.interlocutor = dialogue.interlocutor
+        controller.dialogue = dialogue
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func tappedNewIcon() {
         let controller = NewMessageViewController()
+        controller.userDatabase = userDatabase
         controller.newMessageDelegate = self
         let navigationController = UINavigationController(rootViewController: controller)
         self.present(navigationController, animated: true, completion: nil)
@@ -90,22 +84,24 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatListTableViewCell
-        cell.nameTitleLabel.text = dialogues![indexPath.row].interlocutor.name
+        cell.nameTitleLabel.text = dialogues![indexPath.row].interlocutor?.name
         cell.lastMessageTitleLabel.text = dialogues![indexPath.row].lastMessage
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        routeToNewChat(interlocutor: dialogues![indexPath.row].interlocutor)
+        routeToChat(with: dialogues![indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension ChatsViewController: NewMessageViewDelegate {
     func presentConversation(user: User) {
-        routeToNewChat(interlocutor: user)
-        
+        //need a check to see wether conversation already exists or no
+        let controller = ConversationViewController()
+        controller.interlocutor = user
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

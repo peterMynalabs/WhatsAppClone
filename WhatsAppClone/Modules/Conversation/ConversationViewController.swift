@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import RealmSwift
 
 class ConversationViewController: UIViewController {
     
@@ -8,12 +9,17 @@ class ConversationViewController: UIViewController {
     var interlocutor: User?
     var isDialogueCreated = true
     var dialogue: Dialogue?
+    var messageList: [Message]?
+    private var database: DialogueDatabase?
+
     
     override func loadView() {
         mainView.frame = UIScreen.main.bounds
         view = mainView
         title = interlocutor?.name
         setupKeyboardObservers()
+        
+        database = DialogueDatabase()
         
         if dialogue == nil  {
             isDialogueCreated = false
@@ -132,17 +138,18 @@ class ConversationViewController: UIViewController {
     }()
     
     func createDialogue(message: String) {
-        if !isDialogueCreated {
-            let id = User.current!.uid + interlocutor!.uid
+            let id = User.current!.uid! + interlocutor!.uid!
             dialogue = Dialogue(interlocutor: interlocutor!, dialogueID: String(id.hash), lastMessage: message)
+            database?.addDialogue(dialogue: dialogue!)
             isDialogueCreated = true
-        } else {
-            dialogue?.lastMessage = message
-        }
     }
     
     @objc func clickedSend() {
-        createDialogue(message: textView.text)
+        if !isDialogueCreated {
+            createDialogue(message: textView.text)
+        } else {
+            database?.update(with: textView.text, id: (dialogue?.dialogueID)!)
+        }
         textView.text = ""
         edit()
     }
@@ -184,6 +191,7 @@ extension ConversationViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         edit()
     }
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()

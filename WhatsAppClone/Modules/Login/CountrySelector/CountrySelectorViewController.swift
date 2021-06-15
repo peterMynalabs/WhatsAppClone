@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-protocol CountrySelectorDelegate: class {
+protocol CountrySelectorDelegate: AnyObject {
     func pressedOnRow(country: String)
 }
 

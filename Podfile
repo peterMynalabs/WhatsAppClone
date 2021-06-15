@@ -8,6 +8,7 @@ target 'WhatsAppClone' do
   # Pods for WhatsAppClone
  pod 'SnapKit', '~> 5.0.0'
  pod 'Firebase/Auth'
+ pod 'RealmSwift'
 
   target 'WhatsAppCloneTests' do
     inherit! :search_paths

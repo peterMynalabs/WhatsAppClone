@@ -2,13 +2,19 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class User: Codable {
-    let uid: String
-    var name: String
-    var phoneNumber: String
+class User: Object, Codable {
+    @objc dynamic var uid: String?
+    @objc dynamic var name: String?
+    @objc dynamic var phoneNumber: String?
 
-    init(uid: String, name: String, phoneNumber: String) {
+    override init() {
+        super.init()
+    }
+    
+    convenience init(uid: String, name: String, phoneNumber: String) {
+        self.init()
         self.uid = uid
         self.name = name
         self.phoneNumber = phoneNumber
@@ -33,6 +39,10 @@ class User: Codable {
     static func setCurrent(_ user: User) {
         _current = user
     }
+    
+    override static func primaryKey() -> String? {
+            return "uid"
+        }
 }
 
 struct Constants {
