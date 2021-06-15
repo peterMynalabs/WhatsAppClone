@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 import SnapKit
-protocol NewMessageViewDelegate: class {
+
+protocol NewMessageViewDelegate: AnyObject {
     func presentConversation(user: User)
 }
 
@@ -17,6 +18,10 @@ class NewMessageViewController: UIViewController {
     var userList: [User]?
     
     weak var newMessageDelegate: NewMessageViewDelegate?
+    
+    var dialogueDatabase: DialogueDatabase?
+    var userDatabase: UserDatabase?
+
     
     override func loadView() {
         mainView.frame = UIScreen.main.bounds
@@ -33,10 +38,16 @@ class NewMessageViewController: UIViewController {
             make.height.equalTo(view)
         })
         
-        UserService().getAllUsers(recievedUsers: { [weak self ]users in
-            self?.userList = users
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+        userList = userDatabase?.fetchAllUsers()
+        userList!.sort { $0.name! < $1.name! }
+    
+        UserService().getAllUsers(recievedUsers: { [weak self] users in
+            if users.count != 0 {
+                self?.userList = users
+                self?.userList!.sort { $0.name! < $1.name! }
+                DispatchQueue.main.async {
+                    self?.recievedUsersFromRemote()
+                }
             }
         })
         
@@ -51,6 +62,13 @@ class NewMessageViewController: UIViewController {
         return tableView
     }()
     
+    func recievedUsersFromRemote() {
+        tableView.reloadData()
+        userDatabase?.deleteAll()
+        for user in userList! {
+            userDatabase?.add(user: user)
+        }
+    }
 }
 
 extension NewMessageViewController: UITableViewDelegate, UITableViewDataSource {

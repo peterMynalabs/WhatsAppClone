@@ -6,10 +6,24 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-struct Dialogue {
-    var interlocutor: User
-    var dialogueID: String
-    var lastMessage: String
+class Dialogue: Object  {
+    @objc dynamic var interlocutor: User?
+    @objc dynamic var dialogueID: String?
+    @objc dynamic var lastMessage: String?
+    
+    override init() {
+        super.init()
+    }
+    convenience init(interlocutor: User, dialogueID: String, lastMessage: String) {
+        self.init()
+        self.interlocutor = interlocutor
+        self.dialogueID = dialogueID
+        self.lastMessage = lastMessage
+    }
+    
+    override static func primaryKey() -> String? {
+            return "dialogueID"
+        }
 }

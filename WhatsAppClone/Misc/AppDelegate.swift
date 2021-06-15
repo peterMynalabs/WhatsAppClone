@@ -12,7 +12,8 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    private let dialogueDatabase = DialogueDatabase()
+    private let userDatabase = UserDatabase()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,7 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let userData = UserDefaults.standard.object(forKey: Constants.UserDefaults.currentUser) as? Data
             let user = try? JSONDecoder().decode(User.self, from: userData!)
             User.setCurrent(user!)
-            controller = ChatsViewController()
+            let chatVC = ChatsViewController()
+            chatVC.dialogueDatabase = dialogueDatabase
+            chatVC.userDatabase = userDatabase
+            controller = chatVC
         }
         let mainNavigationController = UINavigationController()
         

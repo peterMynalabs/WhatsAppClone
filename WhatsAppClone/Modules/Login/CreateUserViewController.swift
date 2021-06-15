@@ -139,7 +139,9 @@ class CreateUserViewController: UIViewController {
             return
         }
         UserService().uploadUser(with: user)
-        navigationController?.setViewControllers([ChatsViewController()], animated: true)
+        var controller = ChatsViewController()
+        controller.dialogueDatabase = DialogueDatabase()
+        navigationController?.setViewControllers([controller], animated: true)
     }
 }
 
