@@ -18,8 +18,6 @@ class NewMessageViewController: UIViewController {
     var userList: [User]?
     
     weak var newMessageDelegate: NewMessageViewDelegate?
-    
-    var dialogueDatabase: DialogueDatabase?
     var userDatabase: UserDatabase?
 
     
@@ -39,7 +37,7 @@ class NewMessageViewController: UIViewController {
         })
         
         userList = userDatabase?.fetchAllUsers()
-        userList!.sort { $0.name! < $1.name! }
+        userList?.sort { $0.name! < $1.name! }
     
         UserService().getAllUsers(recievedUsers: { [weak self] users in
             if users.count != 0 {

@@ -8,15 +8,15 @@
 import Foundation
 import RealmSwift
 
-class Dialogue: Object  {
-    @objc dynamic var interlocutor: User?
+class Dialogue: Object, Codable  {
+    @objc dynamic var interlocutor: String?
     @objc dynamic var dialogueID: String?
     @objc dynamic var lastMessage: String?
     
     override init() {
         super.init()
     }
-    convenience init(interlocutor: User, dialogueID: String, lastMessage: String) {
+    convenience init(interlocutor: String, dialogueID: String, lastMessage: String) {
         self.init()
         self.interlocutor = interlocutor
         self.dialogueID = dialogueID

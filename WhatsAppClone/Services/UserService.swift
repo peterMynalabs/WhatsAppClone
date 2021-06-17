@@ -56,6 +56,45 @@ class UserService {
         dataTask.resume()
     }
     
+    func getUser(phoneNumber: String, recieved: @escaping (User?) -> Void) {
+        print(phoneNumber)
+        let query = "{\"phoneNumber\": \"\(phoneNumber)\"}"
+        let session = URLSession.shared
+        
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = Constant().urlHost
+        components.path = "/rest/whatsappcloneusers"
+        components.queryItems = [URLQueryItem(name: "q", value: query)]
+        let url = components.url
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = Constant().headers
+        
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                recieved(nil)
+            } else {
+                if let json = try? JSONSerialization.jsonObject(with: data!, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? NSArray {
+                    for item in json {
+                        let dict = item as! [String: String]
+                        
+                        if let uid = dict["uid"],
+                           let name = dict["name"],
+                           let number = dict["phoneNumber"] {
+                            recieved(User(uid: uid, name: name, phoneNumber: number))
+                        } else {
+                            recieved(nil)
+                        }
+                    }
+                } else {
+                    recieved(nil)
+                }
+            }
+        })
+        dataTask.resume()
+    }
+    
     func getAllUsers(recievedUsers: @escaping ([User]) -> Void){
         let session = URLSession.shared
         
@@ -72,8 +111,6 @@ class UserService {
             if (error != nil) {
                 print(error!)
             } else {
-                let httpResponse = response as? HTTPURLResponse
-                print(httpResponse!)
                 if let _ = try? JSONSerialization.jsonObject(with: data!, options: []) {
                     let decoder = JSONDecoder()
                     let allBlogPosts = try! decoder.decode([User].self, from: data!)

@@ -138,6 +138,7 @@ class LoginViewController: VC {
                 return
               }
                 let controller = VerificationCodeViewController()
+                controller.phoneNumber = phoneNumber
                 self?.loginDelegate = controller
                 self?.loginDelegate?.pressedNext(verificationCode: verificationID, phoneNumber: phoneNumber)
                 self?.navigationController?.pushViewController(controller, animated: true)
