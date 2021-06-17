@@ -36,8 +36,26 @@ class ChatsViewController: UIViewController {
         
     }
     override func viewDidAppear(_ animated: Bool) {
+        //do this on start
+        DialogueService().getAllDialogues(recievedUsers: { [weak self] dialogues in
+            self?.sortDialogues(dialogues)
+        })
         fetchDialogue()
         tableView.reloadData()
+    }
+    
+    func sortDialogues(_ dialogues: [Dialogue]) {
+        var result: [Dialogue] = []
+        for dialogue in dialogues {
+            let interlocutor = dialogue.interlocutor
+            let id = dialogue.dialogueID
+            let myId = User.current!.uid
+            let hash = (myId! + interlocutor!).hash
+            if String(hash) == id {
+                result.append(dialogue)
+            }
+        }
+        print("RESULT", result)
     }
     
     func setupNavigationBar() {
@@ -57,9 +75,12 @@ class ChatsViewController: UIViewController {
         return tableView
     }()
     
-    func routeToChat(with dialogue: Dialogue){
+    func routeToChat(with dialogue: Dialogue) {
         let controller = ConversationViewController()
-        controller.interlocutor = dialogue.interlocutor
+        guard let user = userDatabase?.fetchUser(with: dialogue.interlocutor!) else {  fatalError() }
+
+        controller.interlocutor = user
+        controller.database = dialogueDatabase
         controller.dialogue = dialogue
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -79,12 +100,17 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dialogues!.count
+        guard let dialogues = dialogues else {
+            return 10
+        }
+        return dialogues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatListTableViewCell
-        cell.nameTitleLabel.text = dialogues![indexPath.row].interlocutor?.name
+        if let user = userDatabase?.fetchUser(with: dialogues![indexPath.row].interlocutor!)  {          cell.nameTitleLabel.text = user.name
+            
+        }
         cell.lastMessageTitleLabel.text = dialogues![indexPath.row].lastMessage
         
         return cell
@@ -100,7 +126,9 @@ extension ChatsViewController: NewMessageViewDelegate {
     func presentConversation(user: User) {
         //need a check to see wether conversation already exists or no
         let controller = ConversationViewController()
+        controller.database = dialogueDatabase
         controller.interlocutor = user
+        controller.isDialogueCreated = false
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

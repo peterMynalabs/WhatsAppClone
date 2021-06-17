@@ -22,8 +22,10 @@ final class UserDatabase {
     
     func deleteAll() {
         let realm = try! Realm()
+        let typeOfObject = realm.objects(User.self)
+
         try! realm.write {
-            realm.deleteAll()
+            realm.delete(typeOfObject)
         }
     }
     
@@ -42,7 +44,6 @@ final class UserDatabase {
     }
     
     func fetchAllUsers() -> [User] {
-        var x = Array(realm.objects(User.self))
-        return x
+        return Array(realm.objects(User.self))
     }
 }

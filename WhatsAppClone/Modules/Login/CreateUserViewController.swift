@@ -136,10 +136,12 @@ class CreateUserViewController: UIViewController {
     @objc func clickedDone() {
         user = User(uid: NSUUID().uuidString, name: nameTextField.text!, phoneNumber: phoneNumber!)
         guard let user = user else {
+            //bad
             return
         }
         UserService().uploadUser(with: user)
-        var controller = ChatsViewController()
+        let controller = ChatsViewController()
+        controller.userDatabase = UserDatabase()
         controller.dialogueDatabase = DialogueDatabase()
         navigationController?.setViewControllers([controller], animated: true)
     }

@@ -10,20 +10,13 @@ class ConversationViewController: UIViewController {
     var isDialogueCreated = true
     var dialogue: Dialogue?
     var messageList: [Message]?
-    private var database: DialogueDatabase?
-
+    var database: DialogueDatabase?
     
     override func loadView() {
         mainView.frame = UIScreen.main.bounds
         view = mainView
-        title = interlocutor?.name
+        title = interlocutor!.name
         setupKeyboardObservers()
-        
-        database = DialogueDatabase()
-        
-        if dialogue == nil  {
-            isDialogueCreated = false
-        }
         
         textView.delegate = self
         
@@ -138,10 +131,11 @@ class ConversationViewController: UIViewController {
     }()
     
     func createDialogue(message: String) {
-            let id = User.current!.uid! + interlocutor!.uid!
-            dialogue = Dialogue(interlocutor: interlocutor!, dialogueID: String(id.hash), lastMessage: message)
-            database?.addDialogue(dialogue: dialogue!)
-            isDialogueCreated = true
+        let id = User.current!.uid! + interlocutor!.uid!
+        dialogue = Dialogue(interlocutor: interlocutor!.uid!, dialogueID: String(id.hash), lastMessage: message)
+        database?.addDialogue(dialogue: dialogue!)
+        DialogueService().upload(dialogue: dialogue!)
+        isDialogueCreated = true
     }
     
     @objc func clickedSend() {
@@ -154,17 +148,19 @@ class ConversationViewController: UIViewController {
         edit()
     }
     
-   @objc func keyboardWillAppear(notification: NSNotification) {
-    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+    
+    
+    @objc func keyboardWillAppear(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.mainView.frame.origin.y == 0 {
                 self.mainView.frame.origin.y -= keyboardSize.height - 34
             }
         }
     }
-
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         self.mainView.frame.origin.y = 0
-
+        
     }
     
     func edit() {
@@ -179,7 +175,7 @@ class ConversationViewController: UIViewController {
             cameraButton.isHidden = true
             recordButton.isHidden = true
             sendButton.isHidden = false
-
+            
             textView.snp.updateConstraints({ make -> Void in
                 make.width.equalTo(287)
             })

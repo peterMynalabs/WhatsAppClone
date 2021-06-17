@@ -15,6 +15,7 @@
 		A4547CE32678187000936DDF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4547CE22678187000936DDF /* Message.swift */; };
 		A4547CE6267819A300936DDF /* DialogueDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4547CE5267819A300936DDF /* DialogueDatabase.swift */; };
 		A4547CE826782BB200936DDF /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4547CE726782BB200936DDF /* UserDatabase.swift */; };
+		A4547CEA267B4EC800936DDF /* DialogueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4547CE9267B4EC800936DDF /* DialogueService.swift */; };
 		A46B2E2E267257270072764E /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B2E2D267257270072764E /* ConversationViewController.swift */; };
 		A4AD5C6426669146006499B9 /* CountrySelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */; };
 		A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D7186F266636BB006DFDF2 /* AppDelegate.swift */; };
@@ -73,6 +74,7 @@
 		A4547CE22678187000936DDF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A4547CE5267819A300936DDF /* DialogueDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueDatabase.swift; sourceTree = "<group>"; };
 		A4547CE726782BB200936DDF /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
+		A4547CE9267B4EC800936DDF /* DialogueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueService.swift; sourceTree = "<group>"; };
 		A46B2E2D267257270072764E /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		A4AD5C6326669146006499B9 /* CountrySelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectorViewController.swift; sourceTree = "<group>"; };
 		A4D7186C266636BB006DFDF2 /* WhatsAppClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsAppClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				A4E8228B266915DD00384163 /* UserService.swift */,
+				A4547CE9267B4EC800936DDF /* DialogueService.swift */,
 				A4E8229326692CA000384163 /* ProfilePhotoService.swift */,
 			);
 			path = Services;
@@ -595,6 +598,7 @@
 				A4D71870266636BB006DFDF2 /* AppDelegate.swift in Sources */,
 				A46B2E2E267257270072764E /* ConversationViewController.swift in Sources */,
 				A4E8229A26692D2E00384163 /* Constants.swift in Sources */,
+				A4547CEA267B4EC800936DDF /* DialogueService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

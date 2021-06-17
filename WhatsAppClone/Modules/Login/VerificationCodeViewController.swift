@@ -5,13 +5,14 @@ import SnapKit
 import FirebaseAuth
 
 
-protocol VerificationCodeDelegate: class {
+protocol VerificationCodeDelegate: AnyObject {
     func sucess(phoneNumber: String)
 }
 
 class VerificationCodeViewController: VC {
     var mainView = UIView()
     var recievedVerificationCode: String?
+    var phoneNumber: String?
     
     weak var verificationDelegate: VerificationCodeDelegate?
     
@@ -91,15 +92,33 @@ class VerificationCodeViewController: VC {
             if let error = error {
                 print("authentication error \(error.localizedDescription)")
             }
-            
-            //check if user exists -> Log him in
-            
-            //otherwise send to createUserOrRetrieve User
+            let number = self?.phoneNumber!.dropFirst()
+            UserService().getUser(phoneNumber: String(number!) , recieved: { user in
+                if user != nil {
+                    self?.userExists(user: user!)
+                } else {
+                    self?.createUser(number: String(number!))
+                }
+            })
+        }
+    }
+    
+    func createUser(number: String) {
+        DispatchQueue.main.async {
             let controller = CreateUserViewController()
-            self?.verificationDelegate = controller
-            self?.verificationDelegate?.sucess(phoneNumber: (self?.title)!)
-            self?.navigationController?.pushViewController(controller, animated: true)
-
+            self.verificationDelegate = controller
+            self.verificationDelegate?.sucess(phoneNumber: number)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    func userExists(user: User){
+        DispatchQueue.main.async {
+            User.setCurrent(user, saveToDefaults: true)
+            let controller = ChatsViewController()
+            controller.dialogueDatabase = DialogueDatabase()
+            controller.userDatabase = UserDatabase()
+            self.navigationController?.pushViewController(controller, animated: true)
         }
     }
 }

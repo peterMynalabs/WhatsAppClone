@@ -43,6 +43,7 @@ final class DialogueDatabase {
     func fetchDialogue(with id: String) -> Dialogue? {
         return realm.object(ofType: Dialogue.self, forPrimaryKey: id)
     }
+    
     func fetchAllDialogues() -> [Dialogue] {
         return Array(realm.objects(Dialogue.self))
     }
